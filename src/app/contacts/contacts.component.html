@@ -1,0 +1,65 @@
+<div class="container spacer">
+    <div class="input-group ">
+      <div class="col-xs-3">
+        <input type="text" class="form-control"[(ngModel)]="motCle" placeholder="9leb 3la chi wa7d(a)*">
+      </div>
+      <button class="btn btn-sm btn-outline-info " (click)="Chercher()"><strong>Go !</strong></button>
+    </div>
+  <br>
+  <div class="card card-secondary">
+    <div class="card-header bg-secondary text-white"><h5>Liste des contacts</h5></div>
+    <div class="card-block">
+    <table class="table table-bordered">
+      <thead class="thead-light">
+      <tr>
+        <th>ID</th><th>Nom</th><th>Prenom</th><th>Email</th><th>Telephone</th><th>Date Naissance</th>
+      </tr>
+      <tr *ngFor="let c of pageContacts?.content">
+         <td>{{c.id}}</td>
+         <td>{{c.nom}}</td>
+         <td>{{c.prenom}}</td>
+         <td>{{c.email}}</td>
+         <td>{{c.tel}}</td>
+        <td>{{c.dateNaissance}}</td>
+        <td><a (click)="onEditContact(c.id)" class="fa fa-pencil clickable"></a></td>
+
+        <td><a data-toggle="modal" data-target="#myModal" class="fa fa-trash-o clickable"></a></td>
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Supression</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+                عشيري متأكد باغي تمسح لعيباتش  !
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" (click)="onDeleteContact(c)" class="btn btn-danger" data-dismiss="modal">وييع</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </tr>
+      </thead>
+    </table>
+
+      <div class="container">
+
+      <ul class="pagination">
+
+        <li class="page-item active" [ngClass]="{'active':i==Currentpage}" *ngFor="let p of pages;let i=index ">
+          <a class="clickable" class="page-link" (click)="gotoPage(i)">{{i}}</a>
+      </ul>
+      </div>
+  </div>
+  </div>
+</div>

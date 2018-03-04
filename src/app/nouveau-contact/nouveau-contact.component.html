@@ -1,0 +1,77 @@
+<div class="container spacer" style="width: 600px">
+
+  <div *ngIf="mode==1">
+
+    <form #f="ngForm" (ngSubmit)="onSave(f.value)">
+
+      <div class="form-group">
+        <label style="color: white">nom:</label>
+        <input type="text" ngModel name="nom" required class="form-control" placeholder="nom*"/>
+      </div>
+
+      <div class="form-group">
+        <label style="color: white" >prenom:</label>
+        <input type="text" ngModel name="prenom" required  class="form-control" placeholder="prenom*"/>
+      </div>
+
+      <div class="form-group">
+        <label style="color: white">email:</label>
+        <input type="email" ngModel name="email" required email class="form-control" placeholder="email*"/>
+      </div>
+
+      <div class="form-group">
+        <label style="color: white">Date de naissance:</label>
+        <input type="date" ngModel name="dateNaissance" required  class="form-control"/>
+      </div>
+
+      <div class="form-group">
+        <label style="color: white">Telephone:</label>
+        <input type="text" ngModel name="tel" required  class="form-control" placeholder="Telephone*"/>
+      </div>
+       <button [disabled]="!f.valid" class="btn btn-lg btn-secondary " type="submit"><strong>Ajouter !</strong></button>
+    </form>
+  </div>
+
+    <div class="card card-secondary" *ngIf="mode==2">
+      <div class="card-header bg-secondary text-white"><h5>Confirmation</h5></div>
+      <div class="container card-block">
+
+        <div class="form-group spacer">
+          <label style="color: black" >ID :</label>
+          <label>{{contact.id}}</label>
+        </div>
+
+        <div class="form-group">
+          <label style="color: black">nom :</label>
+          <label>{{contact.nom}}</label>
+        </div>
+
+        <div class="form-group">
+          <label style="color: black" >prenom :</label>
+          <label>{{contact.prenom}}</label>
+        </div>
+
+        <div class="form-group">
+          <label style="color: black">email :</label>
+          <label>{{contact.email}}</label>
+        </div>
+
+        <div class="form-group">
+          <label style="color: black">Date de naissance :</label>
+          <label>{{contact.dateNaissance}}</label>
+        </div>
+
+        <div class="form-group">
+          <label style="color: black">Telephone :</label>
+          <label>{{contact.tel}}</label>
+        </div>
+        <div class="spacer2">
+          <button class="btn btn-sm btn-outline-warning" (click)="mode=1"><strong>Nouveau contact</strong></button>
+        </div>
+
+
+      </div>
+    </div>
+
+
+  </div>

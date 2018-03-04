@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+.spacer{
+  margin-top: 20px;
+}
+.spacer2{
+  margin-bottom: 20px;
+}
+body{
+  background:url(wolf-howling-to-moon-1400x900.jpg) no-repeat !important;
+  padding-top: 10px;
+  background-size:cover;
+}
+footer{
+  color: white;
+  text-align: center;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+}
+.clickable{
+  cursor: pointer;
+}
+
